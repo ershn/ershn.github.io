@@ -92,9 +92,9 @@ C# でプログラミングしており、Unity バージョンと Godot バー�
 機能的には Unity バージョンと Godot バージョンは現在ほぼ一緒です。ちょうど Godot への移行が終わったところです。
 
 - Unity バージョン
-  - https://github.com/ershn/spaceship_game
+  - [https://github.com/ershn/spaceship_game](https://github.com/ershn/spaceship_game)
 - Godot バージョン
-  - https://github.com/ershn/spaceship_game_godot
+  - [https://github.com/ershn/spaceship_game_godot](https://github.com/ershn/spaceship_game_godot)
 
 ### 実装における工夫点
 
