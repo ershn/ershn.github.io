@@ -1,4 +1,17 @@
 ---
 plugins:
   - jekyll-include-cache
+
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+
+title: Steven Le Boedec
+minimal_mistakes_skin: "default"
+atom_feed:
+  hide: true
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single

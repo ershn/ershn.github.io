@@ -1,5 +1,3 @@
-# Steven Le Boedec
-
 はじめまして。  
 Steven Le Boedec と申します。
 

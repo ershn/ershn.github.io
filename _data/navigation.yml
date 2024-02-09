@@ -1,0 +1,9 @@
+main:
+  - title: 自己紹介
+    url: /
+  - title: ゲーム開発スキル
+    url: /skills
+  - title: 制作ゲーム
+    url: /games
+  - title: OSS コントリビューション
+    url: /godot-contributions
