@@ -50,11 +50,7 @@ C# でプログラミングしており、Unity バージョンと Godot バー�
 
 ### ゲームプレイ動画
 
-[![gameplay_video_preview](assets/images/gameplay_video_preview.png)](assets/videos/gameplay_video.mp4)
-
-[gameplay_video.mp4](assets/videos/gameplay_video.mp4)
-
-<video src="assets/videos/gameplay_video.mp4"></video>
+<video src="assets/videos/gameplay_video.mp4" controls width=1280 height=720></video>
 
 ### ソースコード
 
