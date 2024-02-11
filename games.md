@@ -4,9 +4,11 @@ title: 制作ゲーム
 
 ## トップダウンビューの 2D コロニービルダーゲーム
 
+![gameplay_screenshot](assets/images/gameplay_screenshot.png)
+
 プレイヤーがエージェントに指示を出すことでコロニーを構築し、エージェントの生存を図るゲームです。  
 エージェントはすべて AI で、プレイヤーが直接操作することができず、「構築」や「解体」の指示でのみ関節的に操作できます。  
-エージェントには空腹があり、食べ続ける必要があります。胃袋が完全に空になると、エージェントはは死んでしまいます。
+エージェントには空腹があり、食べ続ける必要があります。胃袋が完全に空になると、エージェントは倒れて、死んでしまいます。
 
 Oxygen Not Included からインスピレーションを受け、現在作っているゲームです。  
 C# でプログラミングしており、Unity バージョンと Godot バージョンがあります。  
@@ -15,8 +17,8 @@ C# でプログラミングしており、Unity バージョンと Godot バー�
 ### ダウンロード
 
 - Windows
-  - [ダウンロードリンク](https://github.com/ershn/spaceship_game_godot/releases/download/v0.1.0-alpha/Colony-builder-v0.1.0-alpha-windows-x64.zip)
-  - ゲームを起動するには、ダウンロードされた`zip`ファイルを展開してから、`exe`ファイルを実行してください
+  - [Colony-builder-windows-x64.zip](https://github.com/ershn/spaceship_game_godot/releases/download/v0.1.0-alpha/Colony-builder-v0.1.0-alpha-windows-x64.zip)
+  - ゲームを起動するには、`zip`ファイルを展開して、`exe`ファイルを実行してください
 - macOS
   - TBA
 
