@@ -50,6 +50,12 @@ C# でプログラミングしており、Unity バージョンと Godot バー�
 
 ### ゲームプレイ動画
 
+[![gameplay_video_preview](assets/images/gameplay_video_preview.png)](assets/videos/gameplay_video.mp4)
+
+[gameplay_video.mp4](assets/videos/gameplay_video.mp4)
+
+<video src="assets/videos/gameplay_video.mp4"></video>
+
 ### ソースコード
 
 もともと Unity で作っていたゲームですが、Godot に移行し、現在 Godot バージョンの方を開発しております。  
