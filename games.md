@@ -50,7 +50,7 @@ C# でプログラミングしており、Unity バージョンと Godot バー�
 
 ### ゲームプレイ動画
 
-<video src="assets/videos/gameplay_video.mp4" controls width=1280 height=720></video>
+{% include video id="1-rUWlp-IoEAmF9ECJIKZtLpI6szZrkBo" provider="google-drive" %}
 
 ### ソースコード
 
@@ -65,6 +65,50 @@ C# でプログラミングしており、Unity バージョンと Godot バー�
 ### 実装における工夫点
 
 #### async/await を活かした非同期な設計
+
+必要な時だけ処理が走るようにしています。プーリングはほぼおらず、処理は基本的に非同期に行われます。  
+最初はコールバックとイベントのみを使っていましたが、抽象化をしても分かりにくかったので、async/await や`TaskCompletionSource`を活かすようにしました。  
+これにより、処理が非同期のままでも同期処理と同じ書き方になり、保守性があがりました。
+
+以下は async/await を使って実装したエージェント用のジョブの一つです。
+
+```csharp
+public sealed class DeliverItemJob : IJob, IDisposable
+{
+    // ...
+
+    public async Task Execute(PhysicsBody2D executor, CancellationToken ct)
+    {
+        var mover = executor.GetNode<Mover>("Mover");
+        await mover.MoveTo(_item.GlobalPosition, ct);
+
+        var backpack = executor.GetNode<Backpack>("Backpack");
+        _item.Remove(_amount);
+        backpack.Add(_item.Def, _amount);
+        _item = null;
+
+        try
+        {
+            await mover.MoveTo(_inventory.GlobalPosition, ct);
+        }
+        catch (TaskCanceledException)
+        {
+            backpack.Dump();
+            throw;
+        }
+
+        backpack.Remove(_itemDef, _amount);
+        _inventory.Add(_itemDef, _amount);
+    }
+}
+```
+
+関連クラス
+- [IJob.cs](https://github.com/ershn/spaceship_game_godot/blob/9c67b4ee4648fe3a1e68f303c5adbfbe3a52a7a6/Scripts/Jobs/IJob.cs)　エージェントが実行するジョブのインターフェイス
+- [DeliverItemJob.cs](https://github.com/ershn/spaceship_game_godot/blob/9c67b4ee4648fe3a1e68f303c5adbfbe3a52a7a6/Scripts/Jobs/DeliverItemJob.cs)　アイテムを特定のインベントリーに配達するジョブの実装
+- [WorkOnJob.cs](https://github.com/ershn/spaceship_game_godot/blob/9c67b4ee4648fe3a1e68f303c5adbfbe3a52a7a6/Scripts/Jobs/WorkOnJob.cs)　エージェントの労力が必要な作業を対応するジョブの実装
+- [JobScheduler.cs](https://github.com/ershn/spaceship_game_godot/blob/9c67b4ee4648fe3a1e68f303c5adbfbe3a52a7a6/Scripts/Jobs/JobScheduler.cs)　未処理ジョブをエージェントに配るスケジューラー
+- [JobExecutor.cs](https://github.com/ershn/spaceship_game_godot/blob/9c67b4ee4648fe3a1e68f303c5adbfbe3a52a7a6/Scripts/Jobs/JobExecutor.cs)　エージェントにアタッチされてる、実際にジョブを実行するクラス
 
 #### シングルトンはなく、各クラスの行数は抑えられてる
 
