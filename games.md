@@ -10,28 +10,41 @@ title: 制作ゲーム
 
 Oxygen Not Included からインスピレーションを受け、現在作っているゲームです。  
 C# でプログラミングしており、Unity バージョンと Godot バージョンがあります。  
-一人で作成しています。
+完全に一人で制作しています。
 
 ### ダウンロード
 
 - Windows
+  - [ダウンロードリンク](https://github.com/ershn/spaceship_game_godot/releases/download/v0.1.0-alpha/Colony-builder-v0.1.0-alpha-windows-x64.zip)
+  - ゲームを起動するには、ダウンロードされた`zip`ファイルを展開してから、`exe`ファイルを実行してください
 - macOS
+  - TBA
 
 ### 捜査方法
 
 マウスの左クリックですべて捜査可能です。  
-画面下部にあるボタンをクリックしてから、マップのどこかにクリックすると、エージェントに指示を出せます。  
+画面下部にあるボタンをクリックしてから、マップのどこかをクリックすると、エージェントに指示を出せます。  
 手が空いたエージェントからその指示を実行します。
 
 ボタンの意味は以下の通りです。
 
 | ボタン                                                | 意味                                                 |
 | ----------------------------------------------------- | ---------------------------------------------------- |
-| ![steel_floor](assets/images/steel_floor.png)         | 鋼の地面を作る                                       |
-| ![dirt_floor](assets/images/dirt_floor.png)           | 土の地面を作る                                       |
-| ![potato_plant](assets/images/potato_plant.png)       | ジャガイモの植物を埋める<br>（土の地面でのみできる） |
+| ![steel_floor](assets/images/steel_floor.png)         | 鋼のタイルを作る                                       |
+| ![dirt_floor](assets/images/dirt_floor.png)           | 土のタイルを作る                                       |
+| ![potato_plant](assets/images/potato_plant.png)       | ジャガイモを埋める<br>（土のタイルでのみできる） |
 | ![cancel_button](assets/images/cancel_button.png)     | 指示をキャンセルする                                 |
 | ![demolish_button](assets/images/demolish_button.png) | 作られたものを解体する                               |
+
+以下の表で各アイテムを説明しています。
+
+アイテム画像 | アイテム名称 | 用途
+--- | --- | ---
+![steel_item](assets/images/steel_item.png) | 鋼 | 鋼と土タイルの構築に必要
+![dirt_item](assets/images/dirt_item.png) | 土 | 土タイルの構築に必要
+![potato_item](assets/images/potato_item.png) | ジャガイモ | エージェントの食べ物
+![potato_seed](assets/images/potato_seed.png) | ジャガイモの種 | ジャガイモを埋めるには必要
+![nitratine_item](assets/images/nitratine_item.png) | 硝酸塩鉱物 | ジャガイモを育てるには必要
 
 ### ゲームプレイ動画
 
@@ -47,7 +60,7 @@ C# でプログラミングしており、Unity バージョンと Godot バー�
 
 ### 実装における工夫点
 
-#### async/await を活かしたイベントベースの設計
+#### async/await を活かした非同期な設計
 
 #### シングルトンはなく、各クラスの行数は抑えられてる
 
