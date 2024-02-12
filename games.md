@@ -2,7 +2,7 @@
 title: 制作ゲーム
 ---
 
-## トップダウンビューの 2D コロニービルダーゲーム
+## トップダウンビューの 2D コロニービルダー
 
 ![gameplay_screenshot](assets/images/gameplay_screenshot.png)
 
